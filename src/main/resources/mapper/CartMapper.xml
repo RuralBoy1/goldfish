@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goldfish.goldfish.dao.CartDao" >
+
+    <!-- 新增-->
+    <insert id="insertCart" parameterType="com.goldfish.goldfish.entity.CartInfo">
+        insert into Cart (cartName,cartPrice,cartImage,cartUid) values (#{cartName},#{cartPrice}, #{cartImage},#{cartUid})
+    </insert>
+
+        <!--删除-->
+    <delete id="deleteCart"  parameterType="com.goldfish.goldfish.entity.CartInfo">
+    delete  from cart where cartImage = #{cartImage}
+    </delete>
+
+
+    <!--删除-->
+    <delete id="deleteCart1"  parameterType="com.goldfish.goldfish.entity.CartInfo">
+    delete   from cart where cartUid= #{cartUid}
+    </delete>
+
+    <!-- 查询-->
+    <select id="selectCart" resultType="com.goldfish.goldfish.entity.CartInfo">
+        select * from cart where cartUid = #{cartUid}
+    </select>
+
+</mapper>

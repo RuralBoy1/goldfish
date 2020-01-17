@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+
+</head>
+<body>
+<form>
+    <table th:each="ci:${ci}">
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品图片</th>
+        </tr>
+        <tr>
+
+            <td id="cartName" name="cartName" th:text="${ci.cartName}"></td>
+            <td id="cartPrice" th:text="${ci.cartPrice}"></td><br>
+            <td ><img th:src="${ci.cartImage}" id="cartImage"  width="200" height="140"></td><br>
+            <a th:href="@{/deleteCart(cartImage=${ci.cartImage})}" >移出</a>
+        </tr>
+
+    </table>
+    <a href="/selectgoods">继续购物</a>
+    <a href="/meun" >结算购物车</a>
+</form>
+</body>
+</html>

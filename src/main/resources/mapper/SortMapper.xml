@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goldfish.goldfish.dao.SortDao" >
+
+    <!-- 查询-->
+    <select id="selectSort" resultType="com.goldfish.goldfish.entity.SortInfo">
+        select * from sort
+    </select>
+
+
+    <!-- 新增-->
+    <insert id="insertSort" parameterType="com.goldfish.goldfish.entity.SortInfo">
+         insert into sort (sortName) values (#{sortName})
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteSort"  parameterType="com.goldfish.goldfish.entity.SortInfo">
+        delete * from sort where sortName = #{sortName}
+    </delete>
+</mapper>

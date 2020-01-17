@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+
+debug: true
+spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+    freemarker:
+      cache: false    #页面不加载缓存，修改即时生效
+  datasource:
+    name: mysql_goldfish
+    url: jdbc:mysql://127.0.0.1:3306/goldfish
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+  resources:
+    static-locations: classpath:/static/
+mybatis:
+    mapper-locations: classpath:mapper/*Mapper.xml
+    config-location: classpath:mapper/mybatis-config.xml
+    type-aliases-package: com.goldfish.goldfish.entity
+servlet:
+  multipart:
+    enabled: true
+    #location: roy-upload-tmp
+    max-file-size: 100MB
+    max-request-size: 100MB

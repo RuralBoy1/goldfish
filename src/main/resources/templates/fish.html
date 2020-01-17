@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎使用金鱼系统</title>
+</head>
+<body>
+请选择分类
+<select>
+<table th:each="si:${si}">
+<tr>
+
+    <option><td th:text="${si.sortName}"></td></option>
+</tr>
+</table>
+</select>
+<form action="/insertsort" method="post">
+    新增分类：<input type="text" name="sortName" /><br>
+    <input type="submit" value="提交" />
+</form>
+<img src="image\8f06d6c4-7b4d-478e-9dfc-e13e2144111exiaomi9.jpg">
+<a href="/selectgoods" target="_blank">查询商品</a>
+</body>
+</html>

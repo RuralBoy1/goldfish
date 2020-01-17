@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我买的商品</title>
+</head>
+<body>
+<table th:each="gi:${gi}">
+    <tr>
+
+        <td th:text="${gi.goodsName}"></td>
+        <td th:text="${gi.goodsPrice}"></td><br>
+        <td ><img th:src="${gi.goodsImage}" ></td><br>
+    </tr>
+</table>
+</body>
+</html>

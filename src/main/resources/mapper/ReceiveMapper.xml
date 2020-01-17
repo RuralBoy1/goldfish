@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goldfish.goldfish.dao.ReceiveDao" >
+
+    <!-- 查询-->
+    <select id="selectReveive" resultType="com.goldfish.goldfish.entity.ReceiveInfo">
+        select * from receive
+    </select>
+
+
+    <!-- 新增-->
+    <insert id="insertReceive1" parameterType="com.goldfish.goldfish.entity.ReceiveInfo">
+         insert into receive (receiveId,receiveName,receivePhone,receiveAddress) values (#{receiveId},#{receiveName},#{receivePhone},#{receiveAddress})
+    </insert>
+
+    <!-- 新增-->
+    <insert id="insertReceive" parameterType="com.goldfish.goldfish.entity.ReceiveInfo">
+         insert into receive (receiveoId) values (#{receiveoId})
+    </insert>
+</mapper>

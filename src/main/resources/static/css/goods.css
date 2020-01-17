@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.item {
+    position: relative;
+    width: 23%;
+    height: 150px;
+    border: 1px solid #000000;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img {
+    display: block;
+    width: 50%;
+    height: 50px;
+}
+.nav {
+    cursor: pointer;
+}

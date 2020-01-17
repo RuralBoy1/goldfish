@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:h1="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<link  th:href="@{css/test.css}" href="../static/css/test.css" rel="stylesheet">
+请输入用户名与密码登录
+<body>
+<form action="/dologin" method="post">
+    账号：<input type="text" name="userId" /><br>
+    密码：<input type="password" name="userPassword" /><br>
+    <input type="submit" value="登录" />
+    <a href="/userRegist" target="_blank">注册</a>
+</form>
+</body>
+</html>
+

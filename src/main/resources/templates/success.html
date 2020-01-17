@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link  th:href="@{css/goods.css}" href="../static/css/goods.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/selectsort1" target="_blank">发布商品</a>
+<a href="/selectCart">购物车</a>
+<a href="/user">个人中心</a>
+<!--<div th:class="container">-->
+<div>
+ <div th:class="container">
+<div th:each="gi:${gi}" th:class="item">
+    <img th:src="${gi.goodsImage}" id="cartImage" width="200" height="140">
+    <div id="cartName" name="cartName" th:text="${gi.goodsName}"></div>
+    <div id="cartPrice" th:text="${gi.goodsPrice}"></div>
+    <input name="goodsId"  type="hidden" th:value="${gi.goodsId}"/>
+    <a th:class="nav" th:href="@{/insertCart(cartName=${gi.goodsName},cartImage=${gi.goodsImage},cartPrice=${gi.goodsPrice})}" >加入购物车</a>
+</div>
+ </div>
+</div>
+<!--</div>-->
+</body>
+</html>

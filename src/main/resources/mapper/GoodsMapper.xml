@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goldfish.goldfish.dao.GoodsDao" >
+
+    <!-- 查询-->
+    <select id="selectGoods" resultType="com.goldfish.goldfish.entity.GoodsInfo">
+        select * from goods where goodsStatus = 1
+    </select>
+
+    <!-- 查询-->
+    <select id="selectsortGoods" resultType="com.goldfish.goldfish.entity.GoodsInfo">
+        select * from goods where goodsSort = #{sortName}
+    </select>
+
+    <!-- 查询-->
+    <select id="selectuidGoods" resultType="com.goldfish.goldfish.entity.GoodsInfo">
+        select * from goods where uId = #{uId}
+    </select>
+
+    <!-- 查询-->
+    <select id="selectsellGoods" resultType="com.goldfish.goldfish.entity.GoodsInfo">
+        select * from goods where uId = #{uId} and goodsStatus = 0
+    </select>
+
+    <!-- 查询-->
+    <select id="selectbuyGoods" resultType="com.goldfish.goldfish.entity.GoodsInfo">
+        select * from goods where bId = #{bId}
+    </select>
+
+    <!-- 查询-->
+    <select id="selectidGoods" resultType="com.goldfish.goldfish.entity.GoodsInfo">
+        select * from goods where goodsId = #{goodsId}
+    </select>
+
+
+    <!-- 更新-->
+    <insert id="insertGoods" parameterType="com.goldfish.goldfish.entity.GoodsInfo">
+         insert into goods (goodsImage,goodsRemark,goodsName,goodsSort,goodsPrice,goodsStatus,uId) values
+          ( #{goodsImage},#{goodsRemark},#{goodsName},#{goodsSort},#{goodsPrice},1,#{uId})
+    </insert>
+
+    <!-- 新增-->
+    <update id="updateGoods">
+        update goods set
+        bId = #{bId},
+        bPhone = #{bPhone},
+        bName = #{bName},
+        bAddres = #{bAddres},
+        goodsStatus = 0
+
+        <foreach collection="ci" index="index" item="item" open="where goodsImage in(" separator="," close=")">
+            #{item.cartImage}
+        </foreach>
+    </update>
+
+    <!--删除-->
+    <delete id="deleteGoods"  parameterType="com.goldfish.goldfish.entity.GoodsInfo">
+        delete from goods where goodsId = #{goodsId}
+    </delete>
+
+<!--    &lt;!&ndash;更新&ndash;&gt;-->
+<!--    <update id="updateGoods" parameterType="com.goldfish.goldfish.entity.UserInfo">-->
+<!--        update goods set goodsStatus = 0-->
+<!--    </update>-->
+</mapper>
